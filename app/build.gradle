@@ -194,8 +194,8 @@ dependencies {
     compile "org.aspectj:aspectjrt:$rootProject.ext.aspectjrtVersion"
     compile "com.nikitakozlov.pury:annotations:$rootProject.ext.puryAnnotationsVersion"
     debugCompile "com.nikitakozlov.pury:pury:$rootProject.ext.puryVersion"
-    compile "com.squareup.leakcanary:leakcanary-android-no-op:$rootProject.ext.leakcanaryVersion"
-    debugCompile "com.squareup.leakcanary:leakcanary-android:$rootProject.ext.leakcanaryVersion"
+    //compile "com.squareup.leakcanary:leakcanary-android-no-op:$rootProject.ext.leakcanaryVersion"
+    //debugCompile "com.squareup.leakcanary:leakcanary-android:$rootProject.ext.leakcanaryVersion"
     compile "com.jakewharton.timber:timber:$rootProject.ext.timberVersion"
     compile "com.google.guava:guava:$rootProject.guavaVersion"
 
@@ -209,21 +209,36 @@ dependencies {
     // androidTestCompile "org.mockito:mockito-core:$rootProject.ext.mockitoVersion"
     // androidTestCompile "com.google.dexmaker:dexmaker:$rootProject.ext.dexmakerVersion"
     // androidTestCompile "com.google.dexmaker:dexmaker-mockito:$rootProject.ext.dexmakerVersion"
-    androidTestCompile "com.squareup.assertj:assertj-android:$rootProject.ext.assertjandroidVersion@aar"
-    androidTestCompile "com.squareup.assertj:assertj-android-support-v4:$rootProject.ext.assertjandroidVersion@aar"
-    androidTestCompile "com.squareup.assertj:assertj-android-appcompat-v7:$rootProject.ext.assertjandroidVersion@aar"
+    //androidTestCompile "com.squareup.assertj:assertj-android:$rootProject.ext.assertjandroidVersion@aar"
+    //androidTestCompile "com.squareup.assertj:assertj-android-support-v4:$rootProject.ext.assertjandroidVersion@aar"
+    //androidTestCompile "com.squareup.assertj:assertj-android-appcompat-v7:$rootProject.ext.assertjandroidVersion@aar"
+    androidTestCompile "junit:junit:$rootProject.ext.junitVersion"
+    androidTestCompile "org.mockito:mockito-core:$rootProject.ext.mockitoVersion"
+    androidTestCompile "com.google.dexmaker:dexmaker:$rootProject.ext.dexmakerVersion"
+    androidTestCompile "com.google.dexmaker:dexmaker-mockito:$rootProject.ext.dexmakerVersion"
+    androidTestCompile("com.google.truth:truth:$rootProject.ext.googletruthVersion") {
+        exclude group: 'junit' // Android has JUnit built in
+    }
 
-
+    androidTestCompile project(":test-butler-library-1.0.0")
 
 
 
     //Plain and Mock Unit testing
     testCompile "junit:junit:$rootProject.ext.junitVersion"
     //testCompile "org.mockito:mockito-all:$rootProject.ext.mockitoVersion"
-    //testCompile "org.powermock:powermock-mockito-release-full:$rootProject.ext.powermockitoVersion"
+    testCompile "org.powermock:powermock-mockito-release-full:$rootProject.ext.powermockitoVersion"
+    testCompile "org.mockito:mockito-all:$rootProject.ext.mockitoVersion"
+    testCompile "org.hamcrest:hamcrest-all:$rootProject.ext.hamcrestVersion"
+    testCompile("com.google.truth:truth:$rootProject.ext.googletruthVersion") {
+        exclude group: 'junit' // Android has JUnit built in
+    }
 
 
     //UIautomator Testing
     androidTestUiautoCompile "com.android.support.test.uiautomator:uiautomator-v18:$rootProject.ext.uiautomatorVersion"
 
+    debugCompile "com.squareup.leakcanary:leakcanary-android:$rootProject.ext.leakcanaryVersion"
+    releaseCompile "com.squareup.leakcanary:leakcanary-android-no-op:$rootProject.ext.leakcanaryVersion"
+    testCompile "com.squareup.leakcanary:leakcanary-android-no-op:$rootProject.ext.leakcanaryVersion"
 }

@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/greenandroid" />
+            <option value="$PROJECT_DIR$/test-butler-library-1.0.0" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
